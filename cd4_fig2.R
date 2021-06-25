@@ -482,13 +482,13 @@ for(myclust in mygroups){
       groups = tvar,
       mat = expdata[, rownames(annot)],
       metric = 'Signal2Noise',
-      rnames = rownames(res),
+
       v = TRUE
     )
     colnames(res) <- gsub("^s2n$", mynameis, colnames(res))
     write.csv(res, file = paste0(prefix, "metrics_per_", nres, ".csv"))
   }
-  void[[myclust]] <- gsea_liger(
+  void[[myclust]] <- gsea_tests(
     res = res,
     gene_name = "gene_name",
     lfc.type = mynameis,
